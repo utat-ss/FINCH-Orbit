@@ -1,0 +1,19 @@
+Target: DefaultSC
+
+Observer: Toronto_Data
+Start Time (UTC)            Stop Time (UTC)               Duration (s)         
+01 Jun 2020 12:30:20.403    01 Jun 2020 12:30:30.102      9.6988092293    
+
+
+Number of events : 1
+
+
+Observer: Toronto_imaging
+Start Time (UTC)            Stop Time (UTC)               Duration (s)         
+01 Jun 2020 12:29:45.265    01 Jun 2020 12:31:05.148      79.882913874    
+02 Jun 2020 07:20:04.506    02 Jun 2020 07:20:35.719      31.212855305    
+
+
+Number of events : 2
+
+

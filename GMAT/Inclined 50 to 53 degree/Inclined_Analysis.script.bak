@@ -1,0 +1,247 @@
+%General Mission Analysis Tool(GMAT) Script
+%Created: 2020-06-16 19:48:29
+
+
+%----------------------------------------
+%---------- Spacecraft
+%----------------------------------------
+
+Create Spacecraft FINCHSat;
+GMAT FINCHSat.DateFormat = TAIGregorian;
+GMAT FINCHSat.Epoch = '01 Jun 2020 12:00:00.000';
+GMAT FINCHSat.CoordinateSystem = EarthMJ2000Eq;
+GMAT FINCHSat.DisplayStateType = ModifiedKeplerian;
+GMAT FINCHSat.RadPer = 6821;
+GMAT FINCHSat.RadApo = 6870.999999999999;
+GMAT FINCHSat.INC = 51.60000000000001;
+GMAT FINCHSat.RAAN = 337.5;
+GMAT FINCHSat.AOP = 1.909095910416422e-006;
+GMAT FINCHSat.TA = 8.537736462515939e-007;
+GMAT FINCHSat.DryMass = 3;
+GMAT FINCHSat.Cd = 2.2;
+GMAT FINCHSat.Cr = 1.8;
+GMAT FINCHSat.DragArea = 0.14;
+GMAT FINCHSat.SRPArea = 0.14;
+GMAT FINCHSat.NAIFId = -10000001;
+GMAT FINCHSat.NAIFIdReferenceFrame = -9000001;
+GMAT FINCHSat.OrbitColor = Red;
+GMAT FINCHSat.TargetColor = Teal;
+GMAT FINCHSat.OrbitErrorCovariance = [ 1e+070 0 0 0 0 0 ; 0 1e+070 0 0 0 0 ; 0 0 1e+070 0 0 0 ; 0 0 0 1e+070 0 0 ; 0 0 0 0 1e+070 0 ; 0 0 0 0 0 1e+070 ];
+GMAT FINCHSat.CdSigma = 1e+070;
+GMAT FINCHSat.CrSigma = 1e+070;
+GMAT FINCHSat.Id = 'SatId';
+GMAT FINCHSat.Attitude = CoordinateSystemFixed;
+GMAT FINCHSat.SPADSRPScaleFactor = 1;
+GMAT FINCHSat.ModelFile = 'aura.3ds';
+GMAT FINCHSat.ModelOffsetX = 0;
+GMAT FINCHSat.ModelOffsetY = 0;
+GMAT FINCHSat.ModelOffsetZ = 0;
+GMAT FINCHSat.ModelRotationX = 0;
+GMAT FINCHSat.ModelRotationY = 0;
+GMAT FINCHSat.ModelRotationZ = 0;
+GMAT FINCHSat.ModelScale = 1;
+GMAT FINCHSat.AttitudeDisplayStateType = 'Quaternion';
+GMAT FINCHSat.AttitudeRateDisplayStateType = 'AngularVelocity';
+GMAT FINCHSat.AttitudeCoordinateSystem = EarthMJ2000Eq;
+GMAT FINCHSat.EulerAngleSequence = '321';
+
+%----------------------------------------
+%---------- Hardware Components
+%----------------------------------------
+
+Create SolarPowerSystem EPS;
+GMAT EPS.EpochFormat = 'UTCGregorian';
+GMAT EPS.InitialEpoch = ''01 Jan 2000 11:59:28.000'';
+GMAT EPS.InitialMaxPower = 1.2;
+GMAT EPS.AnnualDecayRate = 5;
+GMAT EPS.Margin = 5;
+GMAT EPS.BusCoeff1 = 0.3;
+GMAT EPS.BusCoeff2 = 0;
+GMAT EPS.BusCoeff3 = 0;
+GMAT EPS.ShadowModel = 'DualCone';
+GMAT EPS.ShadowBodies = {'Earth'};
+GMAT EPS.SolarCoeff1 = 1.32077;
+GMAT EPS.SolarCoeff2 = -0.10848;
+GMAT EPS.SolarCoeff3 = -0.11665;
+GMAT EPS.SolarCoeff4 = 0.10843;
+GMAT EPS.SolarCoeff5 = -0.01279;
+
+%----------------------------------------
+%---------- GroundStations
+%----------------------------------------
+
+Create GroundStation TorontoImaging;
+GMAT TorontoImaging.OrbitColor = Thistle;
+GMAT TorontoImaging.TargetColor = DarkGray;
+GMAT TorontoImaging.CentralBody = Earth;
+GMAT TorontoImaging.StateType = Spherical;
+GMAT TorontoImaging.HorizonReference = Sphere;
+GMAT TorontoImaging.Location1 = 43.6532;
+GMAT TorontoImaging.Location2 = 280.6168;
+GMAT TorontoImaging.Location3 = 0.076;
+GMAT TorontoImaging.Id = 'TorontoIMAGE';
+GMAT TorontoImaging.IonosphereModel = 'None';
+GMAT TorontoImaging.TroposphereModel = 'None';
+GMAT TorontoImaging.DataSource = 'Constant';
+GMAT TorontoImaging.Temperature = 295.1;
+GMAT TorontoImaging.Pressure = 1013.5;
+GMAT TorontoImaging.Humidity = 55;
+GMAT TorontoImaging.MinimumElevationAngle = 60;
+
+Create GroundStation TorontoCOMMS;
+GMAT TorontoCOMMS.OrbitColor = Thistle;
+GMAT TorontoCOMMS.TargetColor = DarkGray;
+GMAT TorontoCOMMS.CentralBody = Earth;
+GMAT TorontoCOMMS.StateType = Spherical;
+GMAT TorontoCOMMS.HorizonReference = Sphere;
+GMAT TorontoCOMMS.Location1 = 43.6532;
+GMAT TorontoCOMMS.Location2 = 280.6168;
+GMAT TorontoCOMMS.Location3 = 0.076;
+GMAT TorontoCOMMS.Id = 'TorontoCOMMS10deg';
+GMAT TorontoCOMMS.IonosphereModel = 'None';
+GMAT TorontoCOMMS.TroposphereModel = 'None';
+GMAT TorontoCOMMS.DataSource = 'Constant';
+GMAT TorontoCOMMS.Temperature = 295.1;
+GMAT TorontoCOMMS.Pressure = 1013.5;
+GMAT TorontoCOMMS.Humidity = 55;
+GMAT TorontoCOMMS.MinimumElevationAngle = 80;
+
+
+
+
+
+%----------------------------------------
+%---------- ForceModels
+%----------------------------------------
+
+Create ForceModel LEOProp_ForceModel;
+GMAT LEOProp_ForceModel.CentralBody = Earth;
+GMAT LEOProp_ForceModel.PrimaryBodies = {Earth};
+GMAT LEOProp_ForceModel.SRP = On;
+GMAT LEOProp_ForceModel.RelativisticCorrection = Off;
+GMAT LEOProp_ForceModel.ErrorControl = RSSStep;
+GMAT LEOProp_ForceModel.GravityField.Earth.Degree = 4;
+GMAT LEOProp_ForceModel.GravityField.Earth.Order = 4;
+GMAT LEOProp_ForceModel.GravityField.Earth.StmLimit = 100;
+GMAT LEOProp_ForceModel.GravityField.Earth.PotentialFile = 'JGM2.cof';
+GMAT LEOProp_ForceModel.GravityField.Earth.TideModel = 'None';
+GMAT LEOProp_ForceModel.SRP.Flux = 1367;
+GMAT LEOProp_ForceModel.SRP.SRPModel = Spherical;
+GMAT LEOProp_ForceModel.SRP.Nominal_Sun = 149597870.691;
+GMAT LEOProp_ForceModel.Drag.AtmosphereModel = JacchiaRoberts;
+GMAT LEOProp_ForceModel.Drag.HistoricWeatherSource = 'ConstantFluxAndGeoMag';
+GMAT LEOProp_ForceModel.Drag.PredictedWeatherSource = 'ConstantFluxAndGeoMag';
+GMAT LEOProp_ForceModel.Drag.CSSISpaceWeatherFile = 'SpaceWeather-All-v1.2.txt';
+GMAT LEOProp_ForceModel.Drag.SchattenFile = 'SchattenPredict.txt';
+GMAT LEOProp_ForceModel.Drag.F107 = 150;
+GMAT LEOProp_ForceModel.Drag.F107A = 150;
+GMAT LEOProp_ForceModel.Drag.MagneticIndex = 3;
+GMAT LEOProp_ForceModel.Drag.SchattenErrorModel = 'Nominal';
+GMAT LEOProp_ForceModel.Drag.SchattenTimingModel = 'NominalCycle';
+
+%----------------------------------------
+%---------- Propagators
+%----------------------------------------
+
+Create Propagator LEOProp;
+GMAT LEOProp.FM = LEOProp_ForceModel;
+GMAT LEOProp.Type = RungeKutta89;
+GMAT LEOProp.InitialStepSize = 60;
+GMAT LEOProp.Accuracy = 9.999999999999999e-012;
+GMAT LEOProp.MinStep = 0.001;
+GMAT LEOProp.MaxStep = 2700;
+GMAT LEOProp.MaxStepAttempts = 50;
+GMAT LEOProp.StopIfAccuracyIsViolated = true;
+
+%----------------------------------------
+%---------- EventLocators
+%----------------------------------------
+
+Create ContactLocator ContractTracer;
+GMAT ContractTracer.Target = FINCHSat;
+GMAT ContractTracer.Filename = 'D:\Mingde\Documents\GitHub\FINCH-Orbit\contact.txt';
+GMAT ContractTracer.InputEpochFormat = 'TAIModJulian';
+GMAT ContractTracer.InitialEpoch = '21545';
+GMAT ContractTracer.StepSize = 10;
+GMAT ContractTracer.FinalEpoch = '21545.138';
+GMAT ContractTracer.UseLightTimeDelay = true;
+GMAT ContractTracer.UseStellarAberration = true;
+GMAT ContractTracer.WriteReport = true;
+GMAT ContractTracer.RunMode = Automatic;
+GMAT ContractTracer.UseEntireInterval = true;
+GMAT ContractTracer.Observers = {TorontoCOMMS, TorontoImaging};
+GMAT ContractTracer.LightTimeDirection = Receive;
+
+Create EclipseLocator Eclipse_Tracker;
+GMAT Eclipse_Tracker.Spacecraft = FINCHSat;
+GMAT Eclipse_Tracker.Filename = 'D:\Mingde\Documents\GitHub\FINCH-Orbit\Eclipse_track.txt';
+GMAT Eclipse_Tracker.OccultingBodies = {Earth};
+GMAT Eclipse_Tracker.InputEpochFormat = 'A1Gregorian';
+GMAT Eclipse_Tracker.InitialEpoch = '01 Jun 2020 12:30:00.000';
+GMAT Eclipse_Tracker.StepSize = 10;
+GMAT Eclipse_Tracker.FinalEpoch = '02 Jun 2020 12:00:00.000';
+GMAT Eclipse_Tracker.UseLightTimeDelay = false;
+GMAT Eclipse_Tracker.UseStellarAberration = false;
+GMAT Eclipse_Tracker.WriteReport = true;
+GMAT Eclipse_Tracker.RunMode = Automatic;
+GMAT Eclipse_Tracker.UseEntireInterval = true;
+GMAT Eclipse_Tracker.EclipseTypes = {'Umbra', 'Penumbra', 'Antumbra'};
+
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView DefaultOrbitView;
+GMAT DefaultOrbitView.SolverIterations = Current;
+GMAT DefaultOrbitView.UpperLeft = [ 0.000588235294117647 0 ];
+GMAT DefaultOrbitView.Size = [ 0.5 0.4742014742014742 ];
+GMAT DefaultOrbitView.RelativeZOrder = 151;
+GMAT DefaultOrbitView.Maximized = false;
+GMAT DefaultOrbitView.Add = {FINCHSat, Earth, Sun};
+GMAT DefaultOrbitView.CoordinateSystem = EarthMJ2000Eq;
+GMAT DefaultOrbitView.DrawObject = [ true true true ];
+GMAT DefaultOrbitView.DataCollectFrequency = 1;
+GMAT DefaultOrbitView.UpdatePlotFrequency = 50;
+GMAT DefaultOrbitView.NumPointsToRedraw = 0;
+GMAT DefaultOrbitView.ShowPlot = true;
+GMAT DefaultOrbitView.MaxPlotPoints = 20000;
+GMAT DefaultOrbitView.ShowLabels = true;
+GMAT DefaultOrbitView.ViewPointReference = Earth;
+GMAT DefaultOrbitView.ViewPointVector = [ 30000 0 0 ];
+GMAT DefaultOrbitView.ViewDirection = Earth;
+GMAT DefaultOrbitView.ViewScaleFactor = 1;
+GMAT DefaultOrbitView.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT DefaultOrbitView.ViewUpAxis = Z;
+GMAT DefaultOrbitView.EclipticPlane = On;
+GMAT DefaultOrbitView.XYPlane = On;
+GMAT DefaultOrbitView.WireFrame = Off;
+GMAT DefaultOrbitView.Axes = On;
+GMAT DefaultOrbitView.Grid = Off;
+GMAT DefaultOrbitView.SunLine = On;
+GMAT DefaultOrbitView.UseInitialView = On;
+GMAT DefaultOrbitView.StarCount = 7000;
+GMAT DefaultOrbitView.EnableStars = On;
+GMAT DefaultOrbitView.EnableConstellations = On;
+
+Create GroundTrackPlot DefaultGroundTrackPlot;
+GMAT DefaultGroundTrackPlot.SolverIterations = Current;
+GMAT DefaultGroundTrackPlot.UpperLeft = [ 0.02294117647058824 0.4459459459459459 ];
+GMAT DefaultGroundTrackPlot.Size = [ 0.5 0.4742014742014742 ];
+GMAT DefaultGroundTrackPlot.RelativeZOrder = 161;
+GMAT DefaultGroundTrackPlot.Maximized = false;
+GMAT DefaultGroundTrackPlot.Add = {FINCHSat, TorontoCOMMS, TorontoImaging};
+GMAT DefaultGroundTrackPlot.DataCollectFrequency = 1;
+GMAT DefaultGroundTrackPlot.UpdatePlotFrequency = 50;
+GMAT DefaultGroundTrackPlot.NumPointsToRedraw = 0;
+GMAT DefaultGroundTrackPlot.ShowPlot = true;
+GMAT DefaultGroundTrackPlot.MaxPlotPoints = 20000;
+GMAT DefaultGroundTrackPlot.CentralBody = Earth;
+GMAT DefaultGroundTrackPlot.TextureMap = 'ModifiedBlueMarble.jpg';
+
+
+%----------------------------------------
+%---------- Mission Sequence
+%----------------------------------------
+
+BeginMissionSequence;
+Propagate LEOProp(FINCHSat) {FINCHSat.ElapsedDays = 10};
