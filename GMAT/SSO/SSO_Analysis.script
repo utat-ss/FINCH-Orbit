@@ -293,7 +293,6 @@ GMAT PositionReport.UpperLeft = [ 0 0 ];
 GMAT PositionReport.Size = [ 0 0 ];
 GMAT PositionReport.RelativeZOrder = 0;
 GMAT PositionReport.Maximized = false;
-GMAT PositionReport.Filename = 'D:\yeet2.txt';
 GMAT PositionReport.Precision = 16;
 GMAT PositionReport.Add = {FINCHSat.A1Gregorian, FINCHSat.ElapsedSecs, FINCHSat.Earth.Altitude, FINCHSat.Earth.Latitude, FINCHSat.Earth.Longitude, FINCHSat.EarthMJ2000Eq.RA, FINCHSat.EarthMJ2000Eq.DEC, FINCHSat.EarthMJ2000Eq.X, FINCHSat.EarthMJ2000Eq.Y, FINCHSat.EarthMJ2000Eq.Z, FINCHSat.Earth.SMA, FINCHSat.Earth.MA, FINCHSat.Earth.EA, FINCHSat.Earth.TA, FINCHSat.EarthMJ2000Eq.AOP, FINCHSat.EarthMJ2000Eq.RAAN, FINCHSat.EarthMJ2000Eq.INC, FINCHSat.Earth.ECC};
 GMAT PositionReport.WriteHeaders = true;
