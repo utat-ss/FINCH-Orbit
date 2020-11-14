@@ -20,7 +20,9 @@ VALUE1,VALUE2....
 # for a set of n values.
 # skip_header = 1 means we skip the line of headers to get right into the data.
 
-mjd_values = data[:,0] + 29999.5
+mjd_values = data[:,0] + 29999.5 # Standard MJD Epoch: 17 Nov 1858 00:00:00.000
+mpl_jd_values = mjd_values - 40587 # Matplotlib Epoch: 01 Jan 1970 00:00:00.000
+
 times = Time(mjd_values, format="mjd")
 # Times from GMAT imported into astropy
 
@@ -33,4 +35,8 @@ aa_frame = coord.AltAz(obstime=times, location=toronto)
 
 aa_finch_track = finch_track.transform_to(aa_frame)
 
-print(aa_finch_track)
+plt.plot_date(mpl_jd_values, aa_finch_track.alt.deg, "-")
+plt.title("Altitude of Spacecraft Above 79.3832 W, 43.651070 N (Toronto)")
+plt.xlabel("Time [mm-dd hh]")
+plt.ylabel("Altitude (degrees)")
+plt.show()
