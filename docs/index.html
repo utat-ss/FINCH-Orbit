@@ -17,49 +17,185 @@
   <body>
     <div class="container pt-3">
         <div class="row">
-            <div class="col-sm" style="color: white;">
-                <h1>UTAT Space Systems - Orbit Subsystem</h1>
-                <p>Last Updated June 23, 2021</p>
+            <div class="col-9" style="color: white;">
+                <h1>UTAT Space Systems - Orbit Subsystem Art Gallery</h1>
+                <p>Last Updated June 24, 2021</p>
             </div>
 
-            <div class="col-sm text-right" style="color: white !important;">
+            <div class="col-3 text-right" style="color: white !important;">
                 <a href="http://spacesys.utat.ca/confluence/display/FIN/Orbit" style="color: white !important;">Confluence</a> 
                 <br>
                 <a href="https://github.com/spacesys-finch/Orbit" style="color: white !important;">Github</a>
             </div>
         </div>
 
-        <div class="row">
+        <div class="row pb-3">
 
-            <div class="col-7 text-light">
+            <div class="col-sm text-light bg-dark">
                 <h1>Scope</h1>
                 <p>This page shows off all of the cool visualizations and works done by the Orbit Subsystem!</p>
             </div>
         </div>
 
         <div class="row">
+
             <div class="col-sm text-light">
-                <h2>FINCH in Orbit</h2>
-                <video width="400" height="400" controls loop>
-                    <source src="media/basic_orbit.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video>
-                <p>Author: Mingde Yin<br>Date: May 2021</p>
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <img src="media/large.png" width="400">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Target Encounter Zones</h2>
+
+                        <p class="card-text">Author: Jai Willems<br>Date: August 2020
+                            <br>The zones highlighted in the image show regions on Earth which the spacecraft can image its targets from. The different colours coorespond to different events.</p>
+                    </div>
+
+                </div>  
+            </div>
+
+            <div class="col-sm text-light">
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <img src="media/sunlight_model.jpeg" width="400">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Sunlight Model</h2>
+
+                        <p class="card-text">Author: Natalia Bellefleur<br>Date: March 2021
+                            <br>One of the many sketches made in the process determining the total solar power received by the spacecraft over an orbit.</p>
+                    </div>
+
+                </div>  
+            </div>
+
+            <div class="col-sm text-light">
+
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <video width="400" height="400" controls loop>
+                            <source src="media/basic_orbit.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">FINCH in Orbit</h2>
+
+                        <p class="card-text">Author: Mingde Yin<br>Date: May 2021
+                            <br>This short clip shows the path of the spacecraft in its 500 km Sun Synchronous Orbit.</p>
+                    </div>
+
+                </div>  
                 
             </div>
 
             <div class="col-sm text-light">
-                <h2>Ground Track Shifting</h2>
-                <video width="400" height="400" controls loop>
-                    <source src="media/ground_track_encounters.mp4" type="video/mp4">
-                  Your browser does not support the video tag.
-                  </video>
-                  <p>Author: Theodora Girgis<br>Date: June 2021</p>
-                
+
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <video width="400" height="400" controls loop>
+                            <source src="media/pointing_profiles.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Spacecraft Pointing Test</h2>
+
+                        <p class="card-text">Author: Mingde Yin<br>Date: May 2021
+                            <br>This video shows the orientation of the spacecraft over time as it travels along its orbit, correctly adjusting its attitude to lock onto its target when it is near.</p>
+                    </div>
+
+                </div>  
+
             </div>
 
+            <div class="col-sm text-light">
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <img src="media/comparing_interpolation_methods.png" width="800">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Interpolation Analysis on Altitude-Azimuth Dataset</h2>
 
+                        <p class="card-text">Author: Jai Willems<br>Date: June 2021
+                            <br>A comparison on using different interpolation methods to obtain better position data for analysis.
+                            Different results were obtained by directly interpolating Alt-Az data, compared to interpolating ECEF data, then converting to Alt-Az.
+                            Interpolation in ECEF is generally better, because of the lower degree of curvature associated with the data, making cubic splines more accurate.</p>
+                    </div>
+
+                </div>  
+            </div>
+
+            <div class="col-sm text-light">
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <img src="media/default_vs_interpolated_windows.png" width="800">
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Interpolation Analysis on Encounter Windows</h2>
+
+                        <p class="card-text">Author: Jai Willems<br>Date: June 2021
+                            <br>This plot shows the times when valid encounters are detected. By interpolating our data, it was possible to find new windows that were previously skipped over.</p>
+                    </div>
+
+                </div>  
+            </div>
+
+            <div class="col-sm text-light">
+
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <video width="400" height="400" controls loop>
+                            <source src="media/ground_track_encounters.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Ground Track Shifting</h2>
+
+                        <p class="card-text">Author: Theodora Girgis<br>Date: June 2021
+                            <br>This video shows the projection of the spacecraft's orbit onto the ground during each orbit, and highlights
+                            when we are in range of the ground station and imaging target. Whenever the spacecraft is within the gray and black regions, it is able to transmit data and image respectively.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm text-light">
+
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <video width="400" height="400" controls loop>
+                            <source src="media/passes_2d.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Local Pass Arcs</h2>
+
+                        <p class="card-text">Author: Mingde Yin<br>Date: June 2021
+                            <br>This video shows the paths taken by the spacecraft across the sky, as seen by a local observer laying down and looking upward.
+                            The passes which run closest to the center of the circle reach a higher elevation, whereas those skimming the edges barely make it above the horizon before dipping back down.</p>
+                    </div>
+                </div>
+            </div> 
             
+            <div class="col-sm text-light">
+
+                <div class="card bg-dark pt-3">
+                    <div class="card-image text-center" >
+                        <video width="400" height="400" controls loop>
+                            <source src="media/passes_3d.mp4" type="video/mp4">
+                          Your browser does not support the video tag.
+                          </video>
+                    </div>
+                    <div class="card-body">
+                        <h2 class="card-title">Local Pass Arcs 3D</h2>
+
+                        <p class="card-text">Author: Mingde Yin<br>Date: June 2021
+                            <br>A 3D view of the previous video, showing the spacecraft passing above the horizon, above the observation point, then dipping back underneath.</p>
+                    </div>
+                </div>
+            </div>   
         </div>
 
     </div>
