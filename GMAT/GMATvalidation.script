@@ -32,12 +32,12 @@ GMAT FINCH.OrbitErrorCovariance = [ 1e+70 0 0 0 0 0 ; 0 1e+70 0 0 0 0 ; 0 0 1e+7
 GMAT FINCH.CdSigma = 1e+70;
 GMAT FINCH.CrSigma = 1e+70;
 GMAT FINCH.Id = 'SatId';
-GMAT FINCH.Attitude = CoordinateSystemFixed;
+GMAT FINCH.Attitude = NadirPointing;
 GMAT FINCH.SPADSRPInterpolationMethod = Bilinear;
 GMAT FINCH.SPADSRPScaleFactorSigma = 1e+70;
 GMAT FINCH.SPADDragInterpolationMethod = Bilinear;
 GMAT FINCH.SPADDragScaleFactorSigma = 1e+70;
-GMAT FINCH.ModelFile = 'aura.3ds';
+GMAT FINCH.ModelFile = 'C:\Users\mdsup\OneDrive - University of Toronto\UTAT\Volume Allocation Model V2.3ds';
 GMAT FINCH.ModelOffsetX = 0;
 GMAT FINCH.ModelOffsetY = 0;
 GMAT FINCH.ModelOffsetZ = 0;
@@ -47,8 +47,15 @@ GMAT FINCH.ModelRotationZ = 0;
 GMAT FINCH.ModelScale = 1;
 GMAT FINCH.AttitudeDisplayStateType = 'Quaternion';
 GMAT FINCH.AttitudeRateDisplayStateType = 'AngularVelocity';
-GMAT FINCH.AttitudeCoordinateSystem = EarthMJ2000Eq;
 GMAT FINCH.EulerAngleSequence = '321';
+GMAT FINCH.AttitudeReferenceBody = Earth;
+GMAT FINCH.AttitudeConstraintType = 'OrbitNormal';
+GMAT FINCH.BodyAlignmentVectorX = 0;
+GMAT FINCH.BodyAlignmentVectorY = 0;
+GMAT FINCH.BodyAlignmentVectorZ = -1;
+GMAT FINCH.BodyConstraintVectorX = 1;
+GMAT FINCH.BodyConstraintVectorY = 0;
+GMAT FINCH.BodyConstraintVectorZ = 0;
 
 %----------------------------------------
 %---------- GroundStations
@@ -172,6 +179,8 @@ GMAT AustraliaImaging.MinimumElevationAngle = 57;
 
 
 
+
+
 %----------------------------------------
 %---------- ForceModels
 %----------------------------------------
@@ -225,6 +234,10 @@ Create CoordinateSystem localaltaz;
 GMAT localaltaz.Origin = TorontoImaging;
 GMAT localaltaz.Axes = Topocentric;
 
+Create CoordinateSystem FINCHBODY;
+GMAT FINCHBODY.Origin = FINCH;
+GMAT FINCHBODY.Axes = MJ2000Eq;
+
 %----------------------------------------
 %---------- EventLocators
 %----------------------------------------
@@ -250,10 +263,10 @@ GMAT All_Locator.LightTimeDirection = Transmit;
 
 Create OrbitView Orbit_Plot;
 GMAT Orbit_Plot.SolverIterations = Current;
-GMAT Orbit_Plot.UpperLeft = [ 0.1388557806912992 0.04092526690391459 ];
-GMAT Orbit_Plot.Size = [ 0.5005959475566151 0.4501779359430605 ];
-GMAT Orbit_Plot.RelativeZOrder = 167;
-GMAT Orbit_Plot.Maximized = false;
+GMAT Orbit_Plot.UpperLeft = [ 0.138034188034188 0.03935599284436494 ];
+GMAT Orbit_Plot.Size = [ 0.5004273504273504 0.4499105545617174 ];
+GMAT Orbit_Plot.RelativeZOrder = 174;
+GMAT Orbit_Plot.Maximized = true;
 GMAT Orbit_Plot.Add = {FINCH, Earth};
 GMAT Orbit_Plot.CoordinateSystem = EarthMJ2000Eq;
 GMAT Orbit_Plot.DrawObject = [ true true ];
@@ -262,29 +275,29 @@ GMAT Orbit_Plot.UpdatePlotFrequency = 50;
 GMAT Orbit_Plot.NumPointsToRedraw = 0;
 GMAT Orbit_Plot.ShowPlot = true;
 GMAT Orbit_Plot.MaxPlotPoints = 20000;
-GMAT Orbit_Plot.ShowLabels = true;
-GMAT Orbit_Plot.ViewPointReference = Earth;
-GMAT Orbit_Plot.ViewPointVector = [ 30000 0 0 ];
-GMAT Orbit_Plot.ViewDirection = Earth;
+GMAT Orbit_Plot.ShowLabels = false;
+GMAT Orbit_Plot.ViewPointReference = [ 0 0 0 ];
+GMAT Orbit_Plot.ViewPointVector = [ 0 0 30000 ];
+GMAT Orbit_Plot.ViewDirection = FINCH;
 GMAT Orbit_Plot.ViewScaleFactor = 1;
 GMAT Orbit_Plot.ViewUpCoordinateSystem = EarthMJ2000Eq;
 GMAT Orbit_Plot.ViewUpAxis = Z;
 GMAT Orbit_Plot.EclipticPlane = Off;
-GMAT Orbit_Plot.XYPlane = On;
+GMAT Orbit_Plot.XYPlane = Off;
 GMAT Orbit_Plot.WireFrame = Off;
-GMAT Orbit_Plot.Axes = On;
+GMAT Orbit_Plot.Axes = Off;
 GMAT Orbit_Plot.Grid = Off;
 GMAT Orbit_Plot.SunLine = Off;
-GMAT Orbit_Plot.UseInitialView = On;
+GMAT Orbit_Plot.UseInitialView = Off;
 GMAT Orbit_Plot.StarCount = 7000;
-GMAT Orbit_Plot.EnableStars = On;
+GMAT Orbit_Plot.EnableStars = Off;
 GMAT Orbit_Plot.EnableConstellations = On;
 
 Create GroundTrackPlot Ground_Track;
 GMAT Ground_Track.SolverIterations = Current;
-GMAT Ground_Track.UpperLeft = [ 0.131704410011919 0.5008896797153025 ];
-GMAT Ground_Track.Size = [ 0.5005959475566151 0.4501779359430605 ];
-GMAT Ground_Track.RelativeZOrder = 62;
+GMAT Ground_Track.UpperLeft = [ 0.1316239316239316 0.5 ];
+GMAT Ground_Track.Size = [ 0.5004273504273504 0.4501779359430605 ];
+GMAT Ground_Track.RelativeZOrder = 8;
 GMAT Ground_Track.Maximized = false;
 GMAT Ground_Track.Add = {FINCH};
 GMAT Ground_Track.DataCollectFrequency = 1;
@@ -312,10 +325,46 @@ GMAT ReportFile1.Delimiter = ' ';
 GMAT ReportFile1.ColumnWidth = 23;
 GMAT ReportFile1.WriteReport = true;
 
+%----------------------------------------
+%---------- Subscribers
+%----------------------------------------
+
+Create OrbitView Ride_along;
+GMAT Ride_along.SolverIterations = Current;
+GMAT Ride_along.UpperLeft = [ 0.1384615384615385 0.0400355871886121 ];
+GMAT Ride_along.Size = [ 0.5004273504273504 0.4501779359430605 ];
+GMAT Ride_along.RelativeZOrder = 34;
+GMAT Ride_along.Maximized = true;
+GMAT Ride_along.Add = {FINCH, Earth};
+GMAT Ride_along.CoordinateSystem = FINCHBODY;
+GMAT Ride_along.DrawObject = [ true true ];
+GMAT Ride_along.DataCollectFrequency = 1;
+GMAT Ride_along.UpdatePlotFrequency = 50;
+GMAT Ride_along.NumPointsToRedraw = 0;
+GMAT Ride_along.ShowPlot = true;
+GMAT Ride_along.MaxPlotPoints = 20000;
+GMAT Ride_along.ShowLabels = false;
+GMAT Ride_along.ViewPointReference = FINCH;
+GMAT Ride_along.ViewPointVector = FINCH;
+GMAT Ride_along.ViewDirection = Earth;
+GMAT Ride_along.ViewScaleFactor = 1;
+GMAT Ride_along.ViewUpCoordinateSystem = EarthMJ2000Eq;
+GMAT Ride_along.ViewUpAxis = Z;
+GMAT Ride_along.EclipticPlane = Off;
+GMAT Ride_along.XYPlane = Off;
+GMAT Ride_along.WireFrame = Off;
+GMAT Ride_along.Axes = Off;
+GMAT Ride_along.Grid = Off;
+GMAT Ride_along.SunLine = Off;
+GMAT Ride_along.UseInitialView = On;
+GMAT Ride_along.StarCount = 7000;
+GMAT Ride_along.EnableStars = On;
+GMAT Ride_along.EnableConstellations = Off;
+
 
 %----------------------------------------
 %---------- Mission Sequence
 %----------------------------------------
 
 BeginMissionSequence;
-Propagate DefaultProp(FINCH) {FINCH.ElapsedDays = 360};
+Propagate DefaultProp(FINCH) {FINCH.ElapsedDays = 1};
